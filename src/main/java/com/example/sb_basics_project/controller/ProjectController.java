@@ -1,14 +1,15 @@
 package com.example.sb_basics_project.controller;
 
+import com.example.sb_basics_project.dto.ProjectDto;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/projects")
 class ProjectController {
     @PostMapping
-    public String createProject(@RequestBody String projectDetails) {
-
-        System.out.println("Received POST request to create project with details: " + projectDetails);
+    public String createProject(@Valid @RequestBody ProjectDto projectDto) {
+        System.out.println("Received valid POST request for project: " + projectDto.getTitle());
         return "Project created successfully!";
     }
 
@@ -31,5 +32,12 @@ class ProjectController {
 
         System.out.println("Received DELETE request for project with ID: " + id);
         return "Project with ID " + id + " deleted successfully.";
+    }
+
+    @GetMapping
+    public String getAllProjects() {
+
+        System.out.println("Received GET request for all projects.");
+        return "List of all projects.";
     }
 }
