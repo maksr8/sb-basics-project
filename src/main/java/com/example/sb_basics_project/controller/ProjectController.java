@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 class ProjectController {
     @PostMapping
     public String createProject(@Valid @RequestBody ProjectDto projectDto) {
-        System.out.println("Received valid POST request for project: " + projectDto.getTitle());
+        System.out.println("Received valid POST request for project: " + projectDto.title());
         return "Project created successfully!";
     }
 

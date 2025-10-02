@@ -1,6 +1,6 @@
 package com.example.sb_basics_project.controller;
 
-import com.example.sb_basics_project.service.FreelancerService;
+import com.example.sb_basics_project.service.IFreelancerService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/api/freelancers")
 class FreelancerController {
 
-    private final FreelancerService freelancerService;
+    private final IFreelancerService freelancerService;
 
-    public FreelancerController(FreelancerService freelancerService) {
+    public FreelancerController(IFreelancerService freelancerService) {
         this.freelancerService = freelancerService;
     }
 
